@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.box = "fedora_20.box"
-  config.vm.box_url = "https://vagrantcloud.com/jwmatthews/fedora_20/version/1/provider/virtualbox.box"
+  config.vm.box_url = "https://vagrantcloud.com/jwmatthews/fedora_20/version/0.1.0/provider/virtualbox.box"
 
   config.vm.hostname = "pulp.example.com"
 

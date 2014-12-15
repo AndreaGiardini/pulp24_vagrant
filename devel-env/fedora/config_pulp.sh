@@ -23,7 +23,8 @@ sed -i "s/# server_name: server_hostname/server_name: ${HOSTNAME}/" ${PULP_SERVE
 echo "Updated ${PULP_SERVER_CONFIG} server_name to ${HOSTNAME}"
 
 # Update Pulp admin config
-sed -i "s/host = localhost.localdomain/host = ${HOSTNAME}/" ${PULP_ADMIN_CONFIG}
+sed -i "s/# host :/host : ${HOSTNAME}/" ${PULP_ADMIN_CONFIG}
+sed -i "s/# verify_ssl: True/verify_ssl: False/" ${PULP_ADMIN_CONFIG}
 echo "Updated ${PULP_ADMIN_CONFIG} host to ${HOSTNAME}"
 
 # Enable Pulp repo auth

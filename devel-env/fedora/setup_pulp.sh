@@ -6,12 +6,12 @@ yum install -y mongodb mongodb-server
 systemctl enable mongod
 systemctl restart mongod
 
-yum install -y qpid-cpp-server
+yum install -y qpid-cpp-server qpid-tools
 echo "auth=no" >> /etc/qpidd.conf
 
 yum install -y wget
 wget http://repos.fedorapeople.org/repos/pulp/pulp/fedora-pulp.repo -O /etc/yum.repos.d/fedora-pulp.repo
-yum --disablerepo="pulp-v2-stable" --enablerepo="pulp-v2-testing" -y groupinstall pulp-server pulp-admin
+yum --disablerepo="pulp-2-stable" --enablerepo="pulp-2.6-testing" -y groupinstall pulp-server pulp-admin
 sudo -u apache pulp-manage-db
 
 ./config_pulp.sh 
